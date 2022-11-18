@@ -9,6 +9,8 @@ import { Calificacion, calificaciones } from '../Calificaciones';
 export class CalificacionesComponent {
 
   public listaCalificaciones = calificaciones;
+  public canEditar = false;
+  public indice = 0;
 
   constructor() {
   }
@@ -17,8 +19,9 @@ export class CalificacionesComponent {
     alert('calificación guardada')
   }
 
-  editar() {
-    alert('información actualizada')
+  editar(posicion: number) {
+    this.indice = posicion;
+    this.canEditar = !this.canEditar;
   }
 
   validarColor(Calificacion: Calificacion): string {
@@ -33,5 +36,10 @@ export class CalificacionesComponent {
 
 
     return color;
+  }
+
+  cambiarNota(nota: number){
+    this.listaCalificaciones[this.indice].nota = nota;
+    
   }
 }

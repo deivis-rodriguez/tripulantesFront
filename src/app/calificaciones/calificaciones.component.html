@@ -1,13 +1,18 @@
 <h2>Calificaciones del ciclo</h2>
-<div *ngFor="let calificion of listaCalificaciones; let i = index">
-    <h4>nota {{i+1}}, {{calificion.tipoNota}}</h4>
-    <div>
-        <input type="text" [(ngModel)]="calificion.nota"  >
-    </div>
-    <p>nota: {{calificion.nota}}</p>
-   <!--  <p>nota: {{calificion.nota}}</p> -->
-    <p *ngIf="!!calificion.comentario ">comentario: {{calificion.comentario}}</p>
-    <button [disabled]="calificion.nota < 4" (click)="guardar()" >Guardar</button>
-    <button [ngClass]="{clase1:false, clase2:true}" [ngStyle]="{'color': validarColor(calificion)}" (click)="editar()" >Editar</button>
+<div class="contenedor">
+    <div class="contenedor-lista">
+        <div *ngFor="let calificion of listaCalificaciones; let i = index">
+            <h4>nota {{i+1}}, {{calificion.tipoNota}}</h4>
+            <p>nota: {{calificion.nota}}</p>
+           <!--  <p>nota: {{calificion.nota}}</p> -->
+            <p *ngIf="!!calificion.comentario ">comentario: {{calificion.comentario}}</p>
+            <button [ngClass]="{clase1:false, clase2:true}" [ngStyle]="{'color': validarColor(calificion)}" (click)="editar(i)" >
+                Editar
+            </button>
+            <mat-slide-toggle>Toggle me!</mat-slide-toggle>
+        </div>
+    </div>    
+    <app-editar-calificacion (notaEvent)="cambiarNota($event)" *ngIf="canEditar" [nota]="listaCalificaciones[indice].nota.toString()"></app-editar-calificacion>
 </div>
+
 
