@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -12,6 +13,7 @@ import { CursosComponent } from './cursos/cursos.component';
 import { CronogramaComponent } from './cronograma/cronograma.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { EditarCalificacionComponent } from './editar-calificacion/editar-calificacion.component';
+import { TripulanteComponent } from './tripulante/tripulante.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,15 @@ import { EditarCalificacionComponent } from './editar-calificacion/editar-califi
     CursosComponent,
     CronogramaComponent,
     AyudaComponent,
-    EditarCalificacionComponent
+    EditarCalificacionComponent,
+    TripulanteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

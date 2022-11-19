@@ -1,45 +1,30 @@
-import { Component } from '@angular/core';
-import { Calificacion, calificaciones } from '../Calificaciones';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Calificacion } from '../model/calificacion';
+import { Tripulante } from '../model/tripulante';
+import { TripulanteService } from '../services/tripulante.service';
 
 @Component({
   selector: 'app-calificaciones',
   templateUrl: './calificaciones.component.html',
   styleUrls: ['./calificaciones.component.css']
 })
-export class CalificacionesComponent {
+export class CalificacionesComponent implements OnInit {
 
-  public listaCalificaciones = calificaciones;
   public canEditar = false;
   public indice = 0;
+  public tripulante: Tripulante;
 
-  constructor() {
+  constructor(private servicio: TripulanteService, private ruta: ActivatedRoute) {
+    this.tripulante = {nombre:'', calificaciones:[], cursos:'', direccion: {calle:'', complemento:'', numero:''}, idTripulante:''}
+  }
+  ngOnInit(): void {
+    const id = String(this.ruta.snapshot.paramMap.get('id'));
+    this.servicio.obtenerTripulante(id).subscribe((respuesta) =>{
+      console.log(respuesta)
+      this.tripulante = respuesta;
+    })
+
   }
 
-  guardar() {
-    alert('calificación guardada')
-  }
-
-  editar(posicion: number) {
-    this.indice = posicion;
-    this.canEditar = !this.canEditar;
-  }
-
-  validarColor(Calificacion: Calificacion): string {
-    let color: string;
-    if (Calificacion.nota < 3) {
-      color = '#e62727';
-    } else if (Calificacion.nota >= 3 && Calificacion.nota < 4) {
-      color = '#fa8e29';
-    } else {
-      color = '#6fe63d';
-    }
-
-
-    return color;
-  }
-
-  cambiarNota(nota: number){
-    this.listaCalificaciones[this.indice].nota = nota;
-    
-  }
 }

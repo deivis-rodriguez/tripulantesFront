@@ -1,0 +1,8 @@
+<h3>lista de tripulantes</h3>
+<div *ngFor="let tripulante of tripulantes; let i = index">
+    <h4>tripulante numero {{i+1}}</h4>
+    <p>Nombre: {{tripulante.nombre}}</p>
+    <p>Cursos: {{tripulante.cursos}}</p>
+    <p *ngIf="!!tripulante.direccion" >Dirección: {{tripulante.direccion.calle}} {{tripulante.direccion.numero}} {{tripulante.direccion.complemento}}</p>
+    <p><a [routerLink]="['/calificaciones', tripulante.idTripulante]">Calificaciones</a></p>
+</div>

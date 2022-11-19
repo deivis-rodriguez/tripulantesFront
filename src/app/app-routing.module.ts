@@ -5,10 +5,12 @@ import { CalificacionesComponent } from './calificaciones/calificaciones.compone
 import { CronogramaComponent } from './cronograma/cronograma.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { TripulanteComponent } from './tripulante/tripulante.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'inicio', pathMatch:'full'},
-  {path:'calificaciones', component: CalificacionesComponent},
+  {path:'calificaciones/:id', component: CalificacionesComponent},
+  {path:'tripulantes', component: TripulanteComponent},
   {path:'inicio', component: InicioComponent},
   {path:'cursos', component: CursosComponent},
   {path:'cronograma', component: CronogramaComponent},
