@@ -1,0 +1,10 @@
+.cabecera{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cabecera button{
+    display: inline-block;
+    margin: 1rem;
+    padding: 0.3rem 0.5rem;
+}

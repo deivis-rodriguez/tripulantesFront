@@ -1,0 +1,53 @@
+<div class="cabecera">
+    <h3>Registrar nuevo tripulante</h3>
+    <div>
+        <button (click)="regresar()">Cancelar</button>
+        <button (click)="guardarTripulante()" [disabled]="!formulario.form.valid">Guardar</button>
+    </div>
+</div>
+
+<form #formulario="ngForm">
+    <fieldset>
+        <legend>Datos Basicos</legend>
+        <div>
+            <label for="nombre">Nombre: </label>
+            <input id="nombre" name="nombre" type="text" placeholder="nombre del tripulante" [(ngModel)]="tripulante.nombre" required>
+        </div>
+        <div>
+            <label >Dirección</label><br>
+            <label for="dirCalle">Calle: </label>
+            <input id="dirCalle" name="dirCalle" type="text" placeholder="calle de residencia" [(ngModel)]="tripulante.direccion.calle" required>
+            <label for="dirNumero">Número: </label>
+            <input id="dirNumero" name="dirNumero" type="text" placeholder="numero de dirección" [(ngModel)]="tripulante.direccion.numero" required>
+            <label for="dirComplemento">Complemento: </label>
+            <input id="dirComplemento" name="dirComplemento" type="text" placeholder="complemento dirección" [(ngModel)]="tripulante.direccion.complemento">
+        </div>
+
+    </fieldset>
+    <fieldset>
+        <legend>Curso</legend>
+        <div>
+            <label for="curso">Curso: </label>
+            <input id="curso" name="curso" type="text" placeholder="nombre del curso" [(ngModel)]="tripulante.cursos" required>
+        </div>
+        <div>
+            <label>agregar nota</label> <button (click)="modificarCalificaciones($event)">+</button>
+            <label>Eliminar nota</label> <button (click)="modificarCalificaciones($event)">-</button>
+        </div>
+        <div *ngFor="let calificiacion of tripulante.calificaciones">
+            <div>
+                <label for="calTiNota">Tipo Nota: </label>
+                <input id="calTiNota" name="calTiNota" type="text" placeholder="tipo de nota" [(ngModel)]="calificiacion.tipoNota" required>
+            </div>
+            <div>
+                <label for="calNota">Nota: </label>
+                <input id="calNota" name="calNota" type="text" placeholder="nota" [(ngModel)]="calificiacion.nota" required>
+            </div>
+            <div>
+                <label for="calComentario">Comentario: </label>
+                <input id="calComentario" name="calComentario" type="text" placeholder="comentarios..." [(ngModel)]="calificiacion.comentario">
+            </div>
+        </div>
+    </fieldset>
+
+</form>

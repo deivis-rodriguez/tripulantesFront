@@ -14,6 +14,8 @@ import { CronogramaComponent } from './cronograma/cronograma.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { EditarCalificacionComponent } from './editar-calificacion/editar-calificacion.component';
 import { TripulanteComponent } from './tripulante/tripulante.component';
+import { CrearTripulanteComponent } from './crear-tripulante/crear-tripulante.component';
+import { EditarTripulanteComponent } from './editar-tripulante/editar-tripulante.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { TripulanteComponent } from './tripulante/tripulante.component';
     CronogramaComponent,
     AyudaComponent,
     EditarCalificacionComponent,
-    TripulanteComponent
+    TripulanteComponent,
+    CrearTripulanteComponent,
+    EditarTripulanteComponent
   ],
   imports: [
     BrowserModule,

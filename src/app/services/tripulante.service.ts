@@ -14,13 +14,13 @@ export class TripulanteService {
   public listarTripulantes() {
     return this.http.get<Tripulante[]>(this.urlTripulantes);
   }
+  
+  public obtenerTripulante(id: string) {
+    return this.http.get<Tripulante>(`${this.urlTripulantes}/${id}`);
+  }
 
   public crearTripulante(tripulante: Tripulante) {
     return this.http.post<Tripulante>(this.urlTripulantes, tripulante);
-  }
-
-  public obtenerTripulante(id: string) {
-    return this.http.get<Tripulante>(`${this.urlTripulantes}/${id}`);
   }
 
   public actualizarTripulante(id: string, tripulante: Tripulante) {

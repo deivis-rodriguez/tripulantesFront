@@ -2,7 +2,7 @@ import { Calificacion } from "./calificacion";
 
 export interface Tripulante {
 
-    idTripulante: string
+    idTripulante?: string;
     nombre: string;
     cursos: string;
     direccion: {

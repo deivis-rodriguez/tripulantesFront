@@ -1,8 +1,19 @@
-<h3>lista de tripulantes</h3>
+<div class="cabecera">
+    <h3>Lista de tripulantes</h3>
+    <button routerLink="/crear-tripulante">Registrar Tripulante</button>
+</div>
 <div *ngFor="let tripulante of tripulantes; let i = index">
-    <h4>tripulante numero {{i+1}}</h4>
+
+    <div class="cabecera">
+        <h4>tripulante numero {{i+1}}</h4>
+        <div>
+            <button [routerLink]="['/editar-tripulante', tripulante.idTripulante]">Editar</button>
+            <button (click)="eliminarTripulante(i)">Eliminar</button>
+        </div>
+    </div>
     <p>Nombre: {{tripulante.nombre}}</p>
     <p>Cursos: {{tripulante.cursos}}</p>
-    <p *ngIf="!!tripulante.direccion" >Dirección: {{tripulante.direccion.calle}} {{tripulante.direccion.numero}} {{tripulante.direccion.complemento}}</p>
+    <p *ngIf="!!tripulante.direccion">Dirección: {{tripulante.direccion.calle}} {{tripulante.direccion.numero}}
+        {{tripulante.direccion.complemento}}</p>
     <p><a [routerLink]="['/calificaciones', tripulante.idTripulante]">Calificaciones</a></p>
 </div>

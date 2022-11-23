@@ -21,4 +21,14 @@ export class TripulanteComponent implements OnInit {
     });
   }
 
+  eliminarTripulante(i: number) {
+    let id = this.tripulantes[i].idTripulante;
+    if(id != undefined){
+      this.servicioTripulante.eliminarTripulante(id).subscribe(()=>{
+        alert('tripulante eliminado')
+        this.tripulantes.splice(i, 1)
+      });
+    }
+
+  }
 }
