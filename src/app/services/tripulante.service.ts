@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tripulante } from '../model/tripulante';
+import { TokenStorageService } from './token-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,14 @@ import { Tripulante } from '../model/tripulante';
 export class TripulanteService {
 
   private urlTripulantes = 'http://localhost:8080/tripulantes';
+  //private headers = {}
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient/* , private tokenStorage: TokenStorageService */) { 
+    //this.headers = {headers:{'Authorization': `Bearer ${this.tokenStorage.getToken()}`}}
+  }
 
   public listarTripulantes() {
-    return this.http.get<Tripulante[]>(this.urlTripulantes);
+    return this.http.get<Tripulante[]>(this.urlTripulantes /*,  this.headers */);
   }
   
   public obtenerTripulante(id: string) {

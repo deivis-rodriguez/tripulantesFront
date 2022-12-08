@@ -3,19 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
-import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
-import { CalificacionesComponent } from './calificaciones/calificaciones.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { CursosComponent } from './cursos/cursos.component';
-import { CronogramaComponent } from './cronograma/cronograma.component';
-import { AyudaComponent } from './ayuda/ayuda.component';
-import { EditarCalificacionComponent } from './editar-calificacion/editar-calificacion.component';
-import { TripulanteComponent } from './tripulante/tripulante.component';
-import { CrearTripulanteComponent } from './crear-tripulante/crear-tripulante.component';
-import { EditarTripulanteComponent } from './editar-tripulante/editar-tripulante.component';
+import { AppComponent } from './components/app.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { CalificacionesComponent } from './components/calificaciones/calificaciones.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { CursosComponent } from './components/cursos/cursos.component';
+import { CronogramaComponent } from './components/cronograma/cronograma.component';
+import { AyudaComponent } from './components/ayuda/ayuda.component';
+import { EditarCalificacionComponent } from './components/editar-calificacion/editar-calificacion.component';
+import { TripulanteComponent } from './components/tripulante/tripulante.component';
+import { CrearTripulanteComponent } from './components/crear-tripulante/crear-tripulante.component';
+import { EditarTripulanteComponent } from './components/editar-tripulante/editar-tripulante.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { EditarTripulanteComponent } from './editar-tripulante/editar-tripulante
     EditarCalificacionComponent,
     TripulanteComponent,
     CrearTripulanteComponent,
-    EditarTripulanteComponent
+    EditarTripulanteComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,7 @@ import { EditarTripulanteComponent } from './editar-tripulante/editar-tripulante
     MatSlideToggleModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:AuthInterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

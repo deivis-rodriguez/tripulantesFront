@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Calificacion } from '../model/calificacion';
-import { Tripulante } from '../model/tripulante';
-import { TripulanteService } from '../services/tripulante.service';
+import { Calificacion } from '../../model/calificacion';
+import { Tripulante } from '../../model/tripulante';
+import { TripulanteService } from '../../services/tripulante.service';
 
 @Component({
   selector: 'app-calificaciones',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Tripulante } from '../model/tripulante';
-import { TripulanteService } from '../services/tripulante.service';
+import { Tripulante } from '../../model/tripulante';
+import { TripulanteService } from '../../services/tripulante.service';
 import { Location } from '@angular/common';
-import { Calificacion } from '../model/calificacion';
+import { Calificacion } from '../../model/calificacion';
 
 @Component({
   selector: 'app-crear-tripulante',
