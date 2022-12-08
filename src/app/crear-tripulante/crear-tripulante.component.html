@@ -30,24 +30,8 @@
             <label for="curso">Curso: </label>
             <input id="curso" name="curso" type="text" placeholder="nombre del curso" [(ngModel)]="tripulante.cursos" required>
         </div>
-        <div>
-            <label>agregar nota</label> <button (click)="modificarCalificaciones($event)">+</button>
-            <label>Eliminar nota</label> <button (click)="modificarCalificaciones($event)">-</button>
-        </div>
-        <div *ngFor="let calificiacion of tripulante.calificaciones">
-            <div>
-                <label for="calTiNota">Tipo Nota: </label>
-                <input id="calTiNota" name="calTiNota" type="text" placeholder="tipo de nota" [(ngModel)]="calificiacion.tipoNota" required>
-            </div>
-            <div>
-                <label for="calNota">Nota: </label>
-                <input id="calNota" name="calNota" type="text" placeholder="nota" [(ngModel)]="calificiacion.nota" required>
-            </div>
-            <div>
-                <label for="calComentario">Comentario: </label>
-                <input id="calComentario" name="calComentario" type="text" placeholder="comentarios..." [(ngModel)]="calificiacion.comentario">
-            </div>
-        </div>
+       
+        <app-calificaciones (eventoType)="actualizarNotas($event)"></app-calificaciones>
     </fieldset>
 
 </form>

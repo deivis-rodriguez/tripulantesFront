@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Tripulante } from '../model/tripulante';
 import { TripulanteService } from '../services/tripulante.service';
 import { Location } from '@angular/common';
+import { Calificacion } from '../model/calificacion';
 
 @Component({
   selector: 'app-crear-tripulante',
@@ -11,6 +12,7 @@ import { Location } from '@angular/common';
 export class CrearTripulanteComponent implements OnInit {
 
   public tripulante: Tripulante;
+
 
   constructor(private tripulanteService: TripulanteService, private location: Location) {
     this.tripulante = { nombre: '', cursos: '', direccion: { calle: '', numero: '', complemento: '' }, calificaciones: [] };
@@ -38,5 +40,9 @@ export class CrearTripulanteComponent implements OnInit {
 
   regresar(){
     this.location.back()
+  }
+
+  actualizarNotas(evento: Calificacion[]){
+    this.tripulante.calificaciones = evento;
   }
 }

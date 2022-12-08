@@ -1,8 +1,19 @@
-<h2>Calificaciones del ciclo para {{tripulante.nombre}}</h2>
-<div *ngFor="let calificion of tripulante.calificaciones;">
-    <p>nota: {{calificion.nota}}</p>
-    <p>comentario: {{calificion.comentario}}</p>
-    <button>
-        Editar
-    </button>
+<div>
+    <label>agregar nota</label> <button (click)="modificarCalificaciones($event)">+</button>
+    <label>Eliminar nota</label> <button (click)="modificarCalificaciones($event)">-</button>
+</div>
+<div *ngFor="let calificacion of tripulante.calificaciones; let i = index">
+    <h4>nota {{i+1}}</h4>
+    <div>
+        <label for="tipoNota">Tipo de Nota: </label>
+        <input (keypress)="actualizarNota()" [(ngModel)]="calificacion.tipoNota" type="text" id="tipoNota">
+    </div>
+    <div>
+        <label for="nota">Nota: </label>
+        <input (keypress)="actualizarNota()" [(ngModel)]="calificacion.nota" type="text" id="nota">
+    </div>
+    <div>
+        <label for="comentario">Comentarios: </label>
+        <input (keypress)="actualizarNota()" [(ngModel)]="calificacion.comentario" type="text" id="comentario">
+    </div>
 </div>
