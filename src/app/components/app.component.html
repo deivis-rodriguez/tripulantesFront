@@ -1,2 +1,10 @@
-<h1 style="text-align: center;">mi aplicación: {{title}}</h1>
-<router-outlet></router-outlet>
+<header>
+    <h1 style="text-align: center;">mi aplicación: {{title}}</h1>
+    <div>
+        <figure>
+            <img src="../../assets/usuario.png" alt="user_icon">
+            <figcaption>{{nombreUsuario}} | <a (click)="logout()">Logout</a></figcaption>
+        </figure>
+    </div>
+</header>
+<router-outlet (detach)="actualizar()"></router-outlet>

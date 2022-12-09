@@ -1,0 +1,18 @@
+header {
+    display: flex;
+}
+
+h1 {
+    width: 75%;
+}
+
+header div {
+    width: 24%;
+    display: flex;
+    justify-content: center;
+}
+
+a:hover{
+    cursor: pointer;
+    color: rgb(66, 60, 60);
+}

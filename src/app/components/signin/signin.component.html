@@ -9,7 +9,7 @@
     </div>
     <div>
         <button [disabled]="!formLogin.form.valid" type="submit">Iniciar sesión</button>
-        <div>¿No estas registrado? <a href="">crear cuenta</a></div>
+        <div>¿No estas registrado? <a routerLink="/signup">crear cuenta</a></div>
     </div>
     <div *ngIf="error" style="color: #e73131;">
         Error: {{errorMsg}}

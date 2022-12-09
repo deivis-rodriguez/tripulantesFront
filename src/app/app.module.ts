@@ -18,6 +18,7 @@ import { CrearTripulanteComponent } from './components/crear-tripulante/crear-tr
 import { EditarTripulanteComponent } from './components/editar-tripulante/editar-tripulante.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     TripulanteComponent,
     CrearTripulanteComponent,
     EditarTripulanteComponent,
-    SigninComponent
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

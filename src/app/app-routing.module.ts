@@ -8,6 +8,7 @@ import { CursosComponent } from './components/cursos/cursos.component';
 import { EditarTripulanteComponent } from './components/editar-tripulante/editar-tripulante.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { TripulanteComponent } from './components/tripulante/tripulante.component';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'cronograma', component: CronogramaComponent},
   {path:'ayuda', component: AyudaComponent},
   {path:'signin', component: SigninComponent},
+  {path:'signup', component: SignupComponent},
   {path:'crear-tripulante', component: CrearTripulanteComponent},
   {path:'editar-tripulante/:id', component: EditarTripulanteComponent},
 ];

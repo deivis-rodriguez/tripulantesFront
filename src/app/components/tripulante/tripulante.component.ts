@@ -23,17 +23,17 @@ export class TripulanteComponent implements OnInit {
       this.servicioTripulante.listarTripulantes().subscribe((respuesta: Tripulante[]) => {
         this.tripulantes = respuesta;
       });
-    }else{
+    } else {
       this.location.replaceState('/signin');
       window.location.reload()
     }
-    
+
   }
 
   eliminarTripulante(i: number) {
     let id = this.tripulantes[i].idTripulante;
-    if(id != undefined){
-      this.servicioTripulante.eliminarTripulante(id).subscribe(()=>{
+    if (id != undefined) {
+      this.servicioTripulante.eliminarTripulante(id).subscribe(() => {
         alert('tripulante eliminado')
         this.tripulantes.splice(i, 1)
       });

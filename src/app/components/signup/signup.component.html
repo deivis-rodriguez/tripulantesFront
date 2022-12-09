@@ -1,0 +1,21 @@
+<form (submit)="registro()" #formLogin="ngForm">
+    <div>
+        <label for="username">Username: </label>
+        <input required type="text" name="username" id="username" placeholder="username" [(ngModel)]="signup.username">
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input required type="password" name="password" id="password" placeholder="password" [(ngModel)]="signup.password">
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input required type="email" name="email" id="email" placeholder="email" [(ngModel)]="signup.email">
+    </div>
+    <div>
+        <button [disabled]="!formLogin.form.valid" type="submit">Registrarse</button>
+        <button type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+    <div *ngIf="error" style="color: #e73131;">
+        Error: {{errorMsg}}
+    </div>
+</form>
